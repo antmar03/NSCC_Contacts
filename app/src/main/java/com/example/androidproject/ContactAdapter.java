@@ -12,6 +12,8 @@ import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.Locale;
+
 public class ContactAdapter extends FirestoreRecyclerAdapter<Contact, ContactAdapter.ContactViewHolder>{
 
     Context context;
@@ -29,6 +31,7 @@ public class ContactAdapter extends FirestoreRecyclerAdapter<Contact, ContactAda
         holder.addressText.setText(Contact.getAddress());
         holder.noteText.setText(Contact.getNote());
         holder.phoneText.setText(Contact.getPhone());
+        holder.initialText.setText(String.valueOf(Contact.getFirstName().toUpperCase().charAt(0)));
     }
 
     @NonNull
@@ -39,7 +42,7 @@ public class ContactAdapter extends FirestoreRecyclerAdapter<Contact, ContactAda
     }
 
     class ContactViewHolder extends RecyclerView.ViewHolder {
-        TextView firstNameText,lastNameText,emailText,addressText,noteText, phoneText;
+        TextView firstNameText,lastNameText,emailText,addressText,noteText, phoneText, initialText;
         public ContactViewHolder(@NonNull View itemView) {
             super(itemView);
             firstNameText = itemView.findViewById(R.id.contact_fname_text_view);
@@ -48,6 +51,7 @@ public class ContactAdapter extends FirestoreRecyclerAdapter<Contact, ContactAda
             addressText = itemView.findViewById(R.id.contact_address_text_view);
             noteText = itemView.findViewById(R.id.contact_note_text_view);
             phoneText = itemView.findViewById(R.id.phone_number_text_view);
+            initialText = itemView.findViewById(R.id.contact_initial_text_view);
 
         }
     }
