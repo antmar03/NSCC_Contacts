@@ -28,6 +28,7 @@ public class ContactAdapter extends FirestoreRecyclerAdapter<Contact, ContactAda
         holder.emailText.setText(Contact.getEmail());
         holder.addressText.setText(Contact.getAddress());
         holder.noteText.setText(Contact.getNote());
+        holder.phoneText.setText(Contact.getPhone());
     }
 
     @NonNull
@@ -38,7 +39,7 @@ public class ContactAdapter extends FirestoreRecyclerAdapter<Contact, ContactAda
     }
 
     class ContactViewHolder extends RecyclerView.ViewHolder {
-        TextView firstNameText,lastNameText,emailText,addressText,noteText;
+        TextView firstNameText,lastNameText,emailText,addressText,noteText, phoneText;
         public ContactViewHolder(@NonNull View itemView) {
             super(itemView);
             firstNameText = itemView.findViewById(R.id.contact_fname_text_view);
@@ -46,6 +47,7 @@ public class ContactAdapter extends FirestoreRecyclerAdapter<Contact, ContactAda
             emailText = itemView.findViewById(R.id.contact_email_text_view);
             addressText = itemView.findViewById(R.id.contact_address_text_view);
             noteText = itemView.findViewById(R.id.contact_note_text_view);
+            phoneText = itemView.findViewById(R.id.phone_number_text_view);
 
         }
     }

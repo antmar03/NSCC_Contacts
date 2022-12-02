@@ -29,7 +29,7 @@ public class AddContact extends Fragment {
 
 
     private AddContactViewModel mViewModel;
-    EditText firstName, lastName, email, address, note;
+    EditText firstName, lastName, email, address, note, phone;
     Button addButton;
 
     public static AddContact newInstance() {
@@ -57,6 +57,7 @@ public class AddContact extends Fragment {
         email = root.findViewById(R.id.email_edit_text);
         address = root.findViewById(R.id.address_edit_text);
         note = root.findViewById(R.id.notes_edit_text);
+        phone = root.findViewById(R.id.phone_edit_text);
 
         addButton = root.findViewById(R.id.add_button);
 
@@ -65,39 +66,46 @@ public class AddContact extends Fragment {
         return root;
     }
 
-    private boolean checkForErrors(String fName, String lName, String sAddress, String sEmail) {
+    private boolean checkForErrors(String fName, String lName, String sAddress, String sEmail, String sPhone) {
 
         if(fName == null || fName.isEmpty()) {
             firstName.setError("First Name Required");
             return true;
         }
         if(lName == null || lName.isEmpty()) {
-            firstName.setError("Last Name Required");
+            lastName.setError("Last Name Required");
             return true;
         }
         if(sAddress == null || sAddress.isEmpty()) {
-            firstName.setError("Address Required");
+            address.setError("Address Required");
             return true;
         }
         if(sEmail == null || sEmail.isEmpty()) {
-            firstName.setError("Email Required");
+            email.setError("Email Required");
             return true;
         }
+
+        if(sPhone == null || sPhone.isEmpty()) {
+            phone.setError("Phone Required");
+            return true;
+        }
+
         return false;
     }
 
     public void addContact() {
-        String fName,lName,sAddress,sEmail,sNotes;
+        String fName,lName,sAddress,sEmail,sNotes, sPhone;
         fName = firstName.getText().toString();
         lName = lastName.getText().toString();
         sAddress = address.getText().toString();
         sEmail = email.getText().toString();
         sNotes = note.getText().toString();
+        sPhone = phone.getText().toString();
 
-        if(checkForErrors(fName, lName, sAddress, sEmail)){
+        if(checkForErrors(fName, lName, sAddress, sEmail, sPhone)){
             return;
         }else{
-            Contact contact = new Contact(fName, lName, sEmail, sAddress, sNotes);
+            Contact contact = new Contact(fName, lName, sEmail, sAddress, sNotes, sPhone);
             saveToFirebase(contact);
         }
 

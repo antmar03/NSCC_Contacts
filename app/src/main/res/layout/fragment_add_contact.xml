@@ -82,6 +82,18 @@
                 android:orientation="vertical">
 
                 <EditText
+                    android:id="@+id/phone_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/white"
+                    android:hint="Phone Number"
+                    android:inputType="phone"
+                    android:padding="16dp"
+                    android:textSize="20sp" />
+
+                <EditText
                     android:id="@+id/email_edit_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
