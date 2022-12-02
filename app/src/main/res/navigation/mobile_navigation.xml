@@ -11,18 +11,17 @@
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
+    <fragment
+        android:id="@+id/navigation_create_contact"
+        android:name="com.example.androidproject.ui.add_contact.AddContact"
+        android:label="@string/title_create_contact"
+        tools:layout="@layout/fragment_add_contact" />
 
     <fragment
         android:id="@+id/navigation_contacts"
         android:name="com.example.androidproject.ui.contacts.ContactsFragment"
         android:label="@string/title_contacts"
         tools:layout="@layout/fragment_contacts" />
-
-    <fragment
-        android:id="@+id/navigation_add_contact"
-        android:name="com.example.androidproject.ui.add_contact.AddContact"
-        android:label="@string/title_create_contact"
-        tools:layout="@layout/fragment_add_contact" />
 
     <fragment
         android:id="@+id/navigation_credits"
