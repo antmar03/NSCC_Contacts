@@ -1,5 +1,6 @@
 package com.example.androidproject;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -24,7 +25,7 @@ public class ContactAdapter extends FirestoreRecyclerAdapter<Contact, ContactAda
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull ContactViewHolder holder, int position, @NonNull Contact Contact) {
+    protected void onBindViewHolder(@NonNull ContactViewHolder holder, @SuppressLint("RecyclerView") int position, @NonNull Contact Contact) {
         holder.firstNameText.setText(Contact.getFirstName());
         holder.lastNameText.setText(Contact.getLastName());
         holder.emailText.setText(Contact.getEmail());
@@ -32,6 +33,23 @@ public class ContactAdapter extends FirestoreRecyclerAdapter<Contact, ContactAda
         holder.noteText.setText(Contact.getNote());
         holder.phoneText.setText(Contact.getPhone());
         holder.initialText.setText(String.valueOf(Contact.getFirstName().toUpperCase().charAt(0)));
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, EditActivity.class);
+                intent.putExtra("fname", Contact.getFirstName());
+                intent.putExtra("lname", Contact.getLastName());
+                intent.putExtra("email", Contact.getEmail());
+                intent.putExtra("address", Contact.getAddress());
+                intent.putExtra("phone", Contact.getPhone());
+                intent.putExtra("note", Contact.getNote());
+
+                String docID = getSnapshots().getSnapshot(position).getId();
+                intent.putExtra("docID", docID);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @NonNull
