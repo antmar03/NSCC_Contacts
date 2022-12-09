@@ -1,13 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.credits.Credits">
+    tools:context=".ui.credits.Credits"
+    android:background="#ECECEC"
+    android:orientation="vertical">
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+        android:layout_height="100dp"
+        android:layout_marginTop="150dp"
+        android:text="Anthony Marcellino"
+        android:textSize="35dp"
+        android:gravity="center" />
 
-</FrameLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="MOBI3005"
+        android:textSize="35dp"
+        android:gravity="center" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="December 8th 2022"
+        android:textSize="35dp"
+        android:gravity="center" />
+
+
+</LinearLayout>
